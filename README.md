@@ -1,1 +1,1 @@
-Small projects for practice
+Small frontend projects for practice

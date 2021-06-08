@@ -1,0 +1,64 @@
+body {
+    background-color: #23395d;
+}
+
+#outer {
+    background-color: red;
+    width: 45vw;
+    height: 45vw;
+    border-radius: 50%;
+    position: relative;
+}
+
+#inner {
+	background-color: white;
+    width: 80%;
+    height: 80%;
+	top: 10%;
+	left: 10%;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 5px;
+    background-color: black;
+}
+
+
+@keyframes clockhand {
+    from {
+        transform: rotate(-90deg);
+        transform-origin: left;
+    }
+
+    to {
+        transform: rotate(270deg);
+        transform-origin: left;
+    }
+}
+
+#hour {
+    min-width: 30%;
+    -webkit-animation: clockhand 7200s linear infinite;
+    animation: clockhand 7200s linear infinite;
+}
+
+#minute {
+    min-width: 35%;
+    -webkit-animation: clockhand 120s linear infinite;
+    animation: clockhand 120s linear infinite;
+}
+
+#second {
+    min-width: 40%;
+    -webkit-animation: clockhand 2s linear infinite;
+    animation: clockhand 2s linear infinite;
+}
+
+.center {
+    margin: auto;
+}

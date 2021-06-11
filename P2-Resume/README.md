@@ -1,1 +1,1 @@
-![alt text](https://github.com/sanketitnal/DevsNest_FrontEnd/new/main/P2-Resume/out.png?raw=true)
+![output](https://github.com/sanketitnal/DevsNest_FrontEnd/tree/main/P2-Resume/out.png?raw=true)

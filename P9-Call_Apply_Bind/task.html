@@ -18,20 +18,19 @@
             color: white;
             width: 13vw;
             height: 50px;
-            background-color: brown;
+            background-color: #fb4400;
             border: 1px solid black;
             text-align: center;
             padding: 20px;
             font-size: large;
         }
 
-        .box:hover {
-            background-color: rgba(0, 0, 0, 0.7);
+        .box[id="notselected"]:hover {
+            background-color: #8e1c00!important;
         }
 
-        .outer {
-            background-color: black;
-            padding: 25px;
+        .box[id="selected"]:hover {
+            background-color: #507a18!important;
         }
 
         .small_box {
@@ -44,12 +43,16 @@
 </head>
 <body>
     <div>
-        <div class="small_box" style="background-color: green"></div>&nbsp Booked: <p style="display: inline-block;" id="booked">  </p><br>
-        <div class="small_box" style="background-color: brown"></div>&nbsp Available to book: <p style="display: inline-block;" id="tobook">  </p><br>
+        <div class="small_box" style="background-color: green">
+        </div>
+        &nbsp Booked: <p style="display: inline-block;" id="booked">  </p><br>
+        
+        <div class="small_box" style="background-color: #fb4400">
+        </div>
+        &nbsp Available to book: <p style="display: inline-block;" id="tobook">  </p><br>
     </div>
 
     <div class="flex-container" id="container">
-        <div class="box" id="demo">1</div>
     </div>
 </body>
 
@@ -64,25 +67,30 @@
     booked.innerHTML = booked_no;
     tobook.innerHTML = total_seats - booked_no;
 
-    for(let i = 2; i < 37; ++i) {
+    for(let i = 1; i < 37; ++i) {
         let temp_box = document.createElement("div");
         temp_box.className = "box";
         temp_box.innerHTML = i;
-        temp_box.id = i;
-        temp_box.selected = false;
+        temp_box.id = "notselected";
 
         temp_box.addEventListener("click", (event) => {
-            if(temp_box.selected === false) {
-                temp_box.style = "background-color: green";
+            if(temp_box.id === "notselected") {
+                temp_box.style.backgroundColor = "green";
                 ++booked_no;
                 booked.innerHTML = booked_no;
                 tobook.innerHTML = total_seats - booked_no;
-                temp_box.selected = true;
+                temp_box.id = "selected"
+            } else if(temp_box.id === "selected") {
+                temp_box.style.backgroundColor = "#fb4400";
+                temp_box.backgroundColor
+                --booked_no;
+                booked.innerHTML = booked_no;
+                tobook.innerHTML = total_seats - booked_no;
+                temp_box.id = "notselected"
             }
         })
 
         container.appendChild(temp_box);
     }
-
 </script>
 </html>

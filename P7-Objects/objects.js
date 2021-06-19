@@ -43,7 +43,7 @@ function Cylinder(radius, height) {
     this.height = height;
 }
 Cylinder.prototype.getVolume = function() {
-    return 2 * this.radius * this.height * Math.PI;
+    return 2 * this.radius**2 * this.height * Math.PI;
 }
 
 /*

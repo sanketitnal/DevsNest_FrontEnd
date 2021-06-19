@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* Refered w3 schools */
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100vw;
+        }
+
+        .box {
+            color: white;
+            width: 13vw;
+            height: 50px;
+            background-color: brown;
+            border: 1px solid black;
+            text-align: center;
+            padding: 20px;
+            font-size: large;
+        }
+
+        .box:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .outer {
+            background-color: black;
+            padding: 25px;
+        }
+
+        .small_box {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+        <div class="small_box" style="background-color: green"></div>&nbsp Booked: <p style="display: inline-block;" id="booked">  </p><br>
+        <div class="small_box" style="background-color: brown"></div>&nbsp Available to book: <p style="display: inline-block;" id="tobook">  </p><br>
+    </div>
+
+    <div class="flex-container" id="container">
+        <div class="box" id="demo">1</div>
+    </div>
+</body>
+
+<script>
+
+    const container = document.getElementById("container");
+    const box = document.getElementById("demo");
+    const booked = document.getElementById("booked");
+    const tobook = document.getElementById("tobook");
+    let total_seats = 36, booked_no = 0;
+
+    booked.innerHTML = booked_no;
+    tobook.innerHTML = total_seats - booked_no;
+
+    for(let i = 2; i < 37; ++i) {
+        let temp_box = document.createElement("div");
+        temp_box.className = "box";
+        temp_box.innerHTML = i;
+        temp_box.id = i;
+        temp_box.selected = false;
+
+        temp_box.addEventListener("click", (event) => {
+            if(temp_box.selected === false) {
+                temp_box.style = "background-color: green";
+                ++booked_no;
+                booked.innerHTML = booked_no;
+                tobook.innerHTML = total_seats - booked_no;
+                temp_box.selected = true;
+            }
+        })
+
+        container.appendChild(temp_box);
+    }
+
+</script>
+</html>

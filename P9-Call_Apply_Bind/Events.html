@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" style="width: 500px;" class="nocopy" value = "Q) Which of the following is the largest DAM in the world" readonly><br/>
+    <input type="text" class="nocopy" value = "a. Three Gorges Dam" readonly><br/>
+    <input type="text" class="nocopy" value = "b. Tarbela Dam" readonly><br/>
+    <input type="text" class="nocopy" value = "c. Kirakud Dam" readonly><br/>
+    <input type="text" class="nocopy" value = "d. Hoover Dam" readonly><br/>
+
+    <div id="notice"></div>
+
+    Note: Text selection or/and copy will be considered as use of unfair means
+
+</body>
+<script>
+    const notice = document.getElementById("notice");
+    const text_list = document.getElementsByClassName("nocopy");
+    for(item of text_list) {
+        item.addEventListener("select", (event) => {
+            notice.style = "background-color: orange; color: white";
+            notice.innerHTML = "Donot copy the text, or else you will considered for use of unfair means";
+        })
+
+        item.addEventListener("copy", (event) => {
+            notice.style = "background-color: red; color: white";
+            notice.innerHTML = "You have copied the text and have been booked for use of unfair means";
+        })
+    }
+
+</script>
+</html>

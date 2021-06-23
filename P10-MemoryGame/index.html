@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil+Display:wght@500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="./style.css">
+    <script src="./mgame.js"></script>
+</head>
+
+<body>
+    <div class="info">
+        <div class="h1div">
+            <h1>Memory Game</h1>
+        </div>
+        <p>Player chooses two cards and turns them face up. If they are same then the player wins the pair.
+           If they are not same, they are turned face down again. Player must win all cards to win the game.</p>
+        <span class="h1div" id="cardswon">Cards Won: 0</span> <br/>
+        <span class="h1div" id="movesdisp">Moves: 0</span> <br/>
+
+    </div>
+    <div class="outer">
+        <div class="center">
+            <div id="container">
+            </div>
+        </div>
+    </div>
+</body>
+</html>

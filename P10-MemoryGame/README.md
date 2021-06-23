@@ -1,0 +1,1 @@
+![ouput image](https://github.com/sanketitnal/DevsNest_FrontEnd/tree/main/10-MemoryGame/out.png)

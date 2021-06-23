@@ -1,0 +1,82 @@
+* {
+    transform-style: preserve-3d;
+}
+
+body {
+    background-color: #2A3038;
+}
+
+.info {
+    width: 30%;
+    float: left;
+    border: 0px solid black;
+    padding: 10px;
+}
+
+.h1div {
+    font-family: "Big Shoulders Stencil Display", cursive;
+    color: #FBF8F8;
+    font-size: 2.5em;
+}
+
+.outer {
+    width: 40%;
+    margin: auto;
+}
+
+p {
+    font-family: "Big Shoulders Stencil Display", cursive;
+    color: #CA786D;
+    font-size: 2em;
+}
+
+@media only screen and (max-width: 1200px) {
+    .h1div {font-size: 2em;}
+    p {font-size: 1.5em;}
+}
+
+@media only screen and (max-width: 1000px) {
+    .h1div {font-size: 1.5em;}
+    p {font-size: 1em;}
+}
+
+@media only screen and (max-width: 800px) {
+    .h1div {font-size: 1em;}
+    p {font-size: .8em;}
+}
+
+@media only screen and (max-width: 600px) {
+    .h1div {font-size: .8em;}
+    p {font-size: .5em;}
+}
+
+@media only screen and (max-width: 400px) {
+    .h1div {font-size: .5em;}
+    p {font-size: .3em;}
+}
+
+#container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    column-gap: 5px;
+    row-gap: 5px;
+    justify-items: stretch;
+}
+
+img {
+    max-width: 100%;
+    object-fit: contain;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+}
+
+.card {
+    width: 100%;
+    background-color: #CA786D;
+    transition: transform 1s;
+}
+
+.flipcard {
+    transform: rotateY(-180deg);
+}

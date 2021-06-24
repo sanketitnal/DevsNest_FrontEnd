@@ -6,6 +6,12 @@ body {
     background-color: #2A3038;
 }
 
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
 .info {
     width: 30%;
     float: left;
@@ -46,13 +52,10 @@ p {
 }
 
 @media only screen and (max-width: 600px) {
-    .h1div {font-size: .8em;}
-    p {font-size: .5em;}
-}
-
-@media only screen and (max-width: 400px) {
-    .h1div {font-size: .5em;}
-    p {font-size: .3em;}
+    .h1div {font-size: 1em;}
+    p {font-size: .8em;}
+    .info {width: 80%;}
+    .outer {width: 80%;}
 }
 
 #container {

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./questions.js"></script>
+</head>
+
+<body>
+    <header>Quiz</header>
+
+    <div class="flex-container">
+        <div id="questions-status"></div>
+
+        <div class="que-box">
+            <div id="question"></div>
+
+            <input type="radio" id="A" name="question">
+            <label for="A" id="a">  </label>
+
+            <input type="radio" id="B" name="question">
+            <label for="B" id="b">  </label>
+
+            <input type="radio" id="C" name="question">
+            <label for="C" id="c">  </label>
+
+            <input type="radio" id="D" name="question">
+            <label for="D" id="d">  </label>
+
+            <div class="flex-container move-buttons">
+                <div class="move-button" id="first"> << </div>
+                <div class="move-button" id="prev"> < </div>
+                <div class="move-button" id="next"> > </div>
+                <div class="move-button" id="last"> >> </div>
+                <div class="move-button" id="clear"> Clear Answer </div>
+            <div>
+        </div>
+    </div>
+</body>
+<script src="./quiz.js"></script>
+</html>

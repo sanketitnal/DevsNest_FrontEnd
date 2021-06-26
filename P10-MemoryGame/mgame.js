@@ -53,14 +53,14 @@ window.addEventListener("load", () => {
         card.addEventListener("click", () => {
             if(card.flipped === false && animation_allowed === true) {
                 updateMoves(++moves);
-                animation_allowed === false;
+                animation_allowed = false;
                 playSound("click");
                 card.classList.toggle("flipcard");
                 card.flipped = true;
 
                 if(flipped_card === null) {
                     flipped_card = card;
-                    animation_allowed === true;
+                    animation_allowed = true;
                 } else {
                     setTimeout(() => {
                         if(flipped_card.image_id === card.image_id) {
@@ -81,7 +81,7 @@ window.addEventListener("load", () => {
                             flipped_card.flipped = false;
                             flipped_card = null;
                         }
-                        animation_allowed === true;
+                        animation_allowed = true;
                     }, 1000);
                 }
             }

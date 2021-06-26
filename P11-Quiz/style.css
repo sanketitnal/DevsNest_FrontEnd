@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap');
+
+body {
+    user-select: none;
+    padding: 0px;
+    margin: 0px;
+    background-color: #F5F5F5 ;
+}
+
+.flex-container {
+    display: flex;
+}
+
+header {
+    font-family: 'Merriweather', serif;
+    font-size: 2em;
+    height: 50px;
+    padding: 12px;
+    padding-left: 50px;
+    color: white;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 0 20px 10px rgba(0,0,0,.4);
+    background-color: black;
+}
+
+.que-box {
+    width: 70%;
+    margin: 100px auto;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.4);
+    padding: 30px;
+    font-size: 1.5em;
+}
+
+#questions-status {
+    box-sizing: border-box;
+    width: 5%;
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+#question {
+    padding: 20px;
+}
+
+.Q {
+    width: 20px;
+    height: 20px;
+    background-color: snow;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin: 7px;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.4);
+}
+
+.Q:hover {
+    border: 2px solid blue;
+}
+
+.QItemSelected {
+    box-shadow: 0 0 5px 2px blue;
+}
+
+label {
+    padding: 10px;
+    display: inline-block;
+    width: 95%;
+    height: 30px;
+    border-top: 1px solid rgba(0,0,0,.4);
+}
+
+label:hover {
+    border-radius: 10px;
+    box-shadow: 0 0 10px 2px rgba(0,0,0,.4);
+}
+
+input[type="radio"] {
+    width: 0;
+    opacity: 0;
+    display: none;
+}
+
+input[type="radio"]:checked+label {
+    border: 3px solid rgb(0,0,128);
+    border-radius: 20px;
+}
+
+.move-buttons {
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.move-button {
+    font-family: sans-serif;
+    padding: 0 20px;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.4);
+}
+
+.move-button:hover {
+    box-shadow: 0 0 1px 3px rgba(0,0,0,.4);
+}

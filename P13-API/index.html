@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read a poem</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header> 
+        <div id="poem-heading"> </div>
+        <div id="poets-name"> </div>
+    </header>
+    
+    <div id="wait">
+        Hold on, fetching a poem for you ...
+    </div>
+
+    <div id="poem">
+    </div>
+</body>
+<script>
+    async function getAndPrintPoem() {
+		
+		try {
+			let response = await fetch('https://poetrydb.org/author');
+			let poets_list = (await response.json()).authors;
+			response = await fetch(`https://poetrydb.org/author/${poets_list[Math.floor(Math.random()*poets_list.length)]}`);
+			let poems_list = (await response.json());
+			let random_poem = poems_list[Math.floor(Math.random()*poems_list.length)];
+
+			document.getElementById("wait").style.display = 'none';
+			document.getElementById('poem-heading').innerHTML = random_poem.title;
+			document.getElementById('poets-name').innerHTML = '-by ' + random_poem.author;
+
+			let poemHTML = '';
+			for(l of random_poem.lines) {
+				poemHTML += (l + '<br>');
+			}
+
+			document.getElementById('poem').innerHTML = poemHTML;
+		} catch(Err) {
+			document.getElementById("wait").innerHTML = 'Oh no, some error occured. Could you try after some time ?';
+		}
+    }
+
+    window.addEventListener("load", getAndPrintPoem);
+
+</script>
+
+</html>

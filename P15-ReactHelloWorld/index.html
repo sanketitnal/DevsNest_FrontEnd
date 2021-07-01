@@ -9,15 +9,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.2/umd/react-dom.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
 </head>
+
 <body>
     <div id="root"></div>
 </body>
+
 <script type="text/babel">
+    
     class HelloWorld extends React.Component {
         render() {
             return <h1> The Boy Who Cried Wolf </h1>
         }
     }
+
     class Story extends React.Component {
         render() {
             return (
@@ -43,6 +47,7 @@
             )
         }
     }
+    
     ReactDOM.render(<div>
                         <HelloWorld/>
                         <Story/>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basic</title>
+    <style>
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 5px 2px rgba(0,0,0,.4);
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.10.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+    class MemeCard extends React.Component {
+        constructor() {
+            super()
+            this.state = {imgurl: ""}
+            fetch('https://meme-api.herokuapp.com/gimme')
+            .then(out => out.json().then(out => {
+                this.setState({imgurl: out.url})
+            }))
+            .catch(err => console.log(err))
+        }
+        render() {
+            console.log(this.state.imgurl)
+            return (
+                this.state.imgurl == "" ? <div> Some Error Occured </div>: 
+                <div className="card">
+                    <img src={this.state.imgurl} style={{maxWidth: 500}}/>
+                    <h2 style={{padding: 30}}> Random Meme Card from api </h2>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(<div className="container"><MemeCard/></div>, document.getElementById("root"))
+</script>
+</html>

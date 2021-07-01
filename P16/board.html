@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basic</title>
+    <style>
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .outer-box {
+            width: 240px;
+            height: 240px;
+            border: 20px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .small {
+            width: 30px;
+            height: 30px;
+        }
+        #black {
+            background-color: black;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.10.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+    let arr = []
+    for(let i = 0; i < 64; ++i) arr.push(i)
+    function Box() {
+        return  (<div className="outer-box">
+                    {arr.map(num => <div className ="small" id={(num+Math.floor(num/8))%2==0?"black": "white"}> </div>)}
+                </div>)
+    }
+    ReactDOM.render(<div class="container"><Box/></div>, document.getElementById("root"))
+</script>
+</html>

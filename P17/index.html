@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.10.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <style>
+        .foodListContainer {
+            display: flex;
+            flex-direction: column;
+            overflow: auto;
+            width: 500px;
+            height: 500px;
+            box-shadow: 0 0 8px 2px rgba(0,0,0,.4);
+        }
+
+        .foodCard {
+            width: 450px;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 8px;
+            box-sizing: border-box;
+            background-color: aquamarine;
+            box-shadow: 0 0 8px 2px rgba(0,0,0,.4);
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+    let listItems = [" build a container ", " create a seperate function and use it as a component ", ' pass props "calory and food" and call it to main component '];
+    let foodItems = [{name: "Pizza", energy: "56 cals"}, {name: "Burger", energy: "69 cals"}, {name: "Coke", energy: "500 cals"}, {name: "Browne", energy: "180 cals"}, {name: "Lassania", energy: "200 cals"}, {name: "Pani Puri", energy: "10 cals"}];
+
+    function Container(props) {
+        return (
+            <div>
+            <h1>{props.heading}</h1>
+            {props.child}
+            </div>
+        )
+    }
+
+    function List(props) {
+        return (
+            <ul>
+                {props.child.map(data => <li>{data}</li>)}
+            </ul>
+        )
+    }
+
+    function FoodList(props) {
+        return (
+            <div className="foodListContainer">
+                {props.food_Items.map(item => {
+                    return (
+                        <div className="foodCard">
+                            <h2> {item.name} </h2>
+                            <p> you have consumed {item.energy} today</p>
+                        </div>
+                    )
+                })}
+            </div>
+        )
+    }
+
+    ReactDOM.render(
+        <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
+            <Container heading="Instructions" child={<List child={listItems}/>} />
+            <Container heading="Calorie Read Only" child={<FoodList food_Items={foodItems}/>} />
+        </div>
+        ,document.getElementById("root"))
+
+</script>
+</html>

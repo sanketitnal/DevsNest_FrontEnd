@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Basic</title>
+    <style>
+        .container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .board {
+            width: 240px;
+            height: 240px;
+            border: 20px solid black;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .square {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.10.2/umd/react.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.2/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+</body>
+
+<script type="text/babel">
+	let arr = [];
+	for(let i = 0; i < 64; ++i) {
+		arr.push(i);
+	}
+
+    function Square(props) {
+    	return <div className="square" style={{backgroundColor: props.color}}></div>
+	}
+
+	function Board() {
+		return (
+			<div className="board">
+				{arr.map((number) => <Square key={number} color={(number + Math.floor(number/8))%2 == 0 ? "black": "white"}/>)}
+			</div>
+		)
+	}
+	ReactDOM.render(<div className="container"><Board/></div>, document.getElementById("root"))
+</script>
+</html>

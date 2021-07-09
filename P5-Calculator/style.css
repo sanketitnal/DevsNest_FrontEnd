@@ -1,7 +1,17 @@
+body {
+    background: url("./back.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
 .container {
     width: 500px;
     height: 600px;
-    border: 1px solid black;
+    border-radius: 20px 20px 0 0;
+    background-color:turquoise;
+    margin: auto;
 }
 
 .ans-view {
@@ -9,7 +19,10 @@
     height: 100px;
     color: white;
     text-align: right;
+    border-radius: 20px 20px 0 0;
     background-color: rgba(0, 0, 0, 0.6);
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 
 h1 {
@@ -39,8 +52,6 @@ button {
 td:hover {
     background-color: rgba(192, 89, 89, 0.5);
 }
-
-
 
 .in-num, .back, .cancel {
     background-color: rgba(0, 0, 0, 0.8);

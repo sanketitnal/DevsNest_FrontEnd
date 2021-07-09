@@ -1,0 +1,18 @@
+.App {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.symbol {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+}
+
+.symbol:hover {
+  background-color: rgba(0,0,0,.4);
+}

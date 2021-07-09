@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="placement">
+        <div id="clock-outer-frame">
+            <div id="clock-inner-frame">
+                <div id="center-knob">
+                    <div id="hour"></div>
+                    <div id="minute"></div>
+                    <div id="second"></div>
+                </div>
+                <div id="center-knob">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.addEventListener("load", () => {
+        let centerKnob = document.getElementById("center-knob");
+        let hour = document.getElementById("hour");
+        let minute = document.getElementById("minute");
+        let second = document.getElementById("second");
+        for(let i = 1; i <= 12; ++i) {
+            centerKnob.innerHTML += `<div class="mark numbers" style="transform: rotate(${i*30}deg) translateY(-120px) rotate(-${i*30}deg);">${i}</div>`;
+        }
+        let demo = 0;
+        second.style.transform = "rotate(30deg)";
+    })
+    
+    setInterval(()=> {
+        let time = new Date();
+        let cHours = time.getHours();
+        let cMinutes = time.getMinutes();
+        let cSeconds = time.getSeconds();
+        document.getElementById("hour").style.transform = `translateY(-52.5px) rotate(${(cHours*3600+cMinutes*60+cSeconds)*0.00416*2}deg)`;
+        document.getElementById("minute").style.transform = `translateY(-72.5px) rotate(${(cMinutes*60+cSeconds)*0.1 }deg)`;
+        document.getElementById("second").style.transform = `translateY(-92.5px) rotate(${cSeconds*6}deg)`;
+    },1000);
+</script>
+</html>

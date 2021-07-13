@@ -1,0 +1,45 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.task-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0 0 0;
+}
+
+.task-input > input {
+    width: 70%;
+    padding: 20px;
+    background-color: rgba(0,0,0,.7);
+    border: 0px;
+    border-radius: 5px;
+    color: white;
+}
+
+.task-input > button {
+    width: 70px;
+    height: 55px;
+    background-color: green;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    border: 0px;
+    border-radius: 5px;
+}
+
+.task-input > button:hover {
+    background-color: rgba(0,255,0,0.7);
+}
+
+.task {
+    width: 75%;
+    margin: 10px auto;
+    padding: 20px;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: rgba(0,0,0,.5);
+}

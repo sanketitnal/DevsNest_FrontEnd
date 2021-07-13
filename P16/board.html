@@ -6,27 +6,104 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React Basic</title>
     <style>
+		:root {
+			--squareLength: 50px;
+			--boardLength: 400px;
+			--offset: -20px;
+			--boardBorder: 18px;
+			--containerPadding: 100px;
+		}
+	
+		body {
+			background: url("images/carlsen.jpg") no-repeat center center fixed;
+			-webkit-background-size: cover;
+			-moz-background-size: cover;
+			-o-background-size: cover;
+			background-size: cover;
+		}
+	
+		h3 {
+			color: white;
+		}
+	
         .container {
-            height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
+			flex-direction: column;
+			padding: var(--containerPadding);
+			align-items: center;
+            justify-content: left;
         }
 
         .outer-box {
-            width: 240px;
-            height: 240px;
-            border: 20px solid black;
+            width: var(--boardLength);
+            height: var(--boardLength);
+            border: 2px solid black;
             display: flex;
             flex-wrap: wrap;
+			position: relative;
         }
+		.outer-box:before {
+			content: "";
+			position: absolute;
+			top: -20px;
+			left: -20px;
+			right: -20px;
+			bottom: -20px;
+			border: 18px solid brown;
+		}
         .small {
-            width: 30px;
-            height: 30px;
+            width: var(--squareLength);
+            height: var(--squareLength);
         }
-        #black {
-            background-color: black;
-        }
+		.small > img {
+			min-width: var(--squareLength);
+			max-width: var(--squareLength);
+			min-height: var(--squareLength);
+			max-height: var(--squareLength);
+		}
+		
+		@media only screen and (max-width: 1200px) {
+			:root {
+				--squareLength: 40px;
+				--boardLength: 320px;
+				--offset: -20px;
+				--boardBorder: 18px;
+			}
+		}
+		
+		@media only screen and (max-width: 1100px) {
+			:root {
+				--containerPadding: 80px;
+			}
+		}
+		
+		@media only screen and (max-width: 1000px) {
+			:root {
+				--squareLength: 30px;
+				--boardLength: 240px;
+				--offset: -15px;
+				--boardBorder: 13px;
+			}
+		}
+		
+		@media only screen and (max-width: 900px) {
+			:root {
+				--containerPadding: 50px;
+			}
+		}
+		
+		@media only screen and (max-width: 700px) {
+			:root {
+				--containerPadding: 30px;
+			}
+		}
+		
+		@media only screen and (max-width: 600px) {
+			:root {
+				--containerPadding: 20px;
+			}
+		}
+		
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.10.2/umd/react.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.10.2/umd/react-dom.development.js"></script>
@@ -37,14 +114,28 @@
     <div id="root"></div>
 </body>
 
+<script src="position.js"></script>
 <script type="text/babel">
+
     let arr = []
     for(let i = 0; i < 64; ++i) arr.push(i)
+	function Square(props) {
+		return (
+			<div className="small" style={{backgroundColor: props.color}}>
+				<img src={`images/${props.piece}.png`} alt=""/>
+			</div>)
+	}
+
     function Box() {
         return  (<div className="outer-box">
-                    {arr.map(num => <div className ="small" id={(num+Math.floor(num/8))%2==0?"black": "white"}> </div>)}
+				
+                    {arr.map(num => <Square className ="small" color={(num+Math.floor(num/8))%2==0?"white": "brown"} piece={position[num]}/>)}
                 </div>)
     }
-    ReactDOM.render(<div class="container"><Box/></div>, document.getElementById("root"))
+    ReactDOM.render(<div class="container">
+						<h3>Carlsen, Magnus</h3>
+						<Box/>
+						<h3>Anand, Vishwanathan</h3>
+					</div>, document.getElementById("root"))
 </script>
 </html>

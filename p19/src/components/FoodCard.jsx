@@ -57,8 +57,6 @@ export default class FoodCard extends React.Component {
                     <div className="symbol" style={symbol} onClick={this.increment.bind(this)}> + </div>
                     <div style={symbol}> {this.state.order} </div>
                     <div className="symbol" style={symbol} onClick={this.decrement.bind(this)}> - </div>
-                    <div>  </div>
-                    <div> </div>
                </div>
             </div>
         )

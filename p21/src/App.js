@@ -26,14 +26,30 @@ function App() {
       {list.map((item, index) => {
         return (
           <div className="food-input list-item">
-            <div style={{fontFamily: "'Zen Tokyo Zoo', cursive",
-                        fontSize: "2.5em"}}> {item.name} </div>
-            <div style={{fontSize: "1.2em"}}> You have consumed {item.energy} Calories. </div>
+            { item.edit ?
+              <input type="text" id={index+"item"} className="item-edit" placeholder="ITEM NAME" defaultValue={item.name} required />
+              :
+              <div style={{fontFamily: "'Zen Tokyo Zoo', cursive",
+                        fontSize: "2.5em"}}> {item.name} </div> }
+
+            <div style={{fontSize: "1.2em"}}> You have consumed {item.edit ? <input type="text" id={index+"energy"} className="energy-edit" defaultValue={item.energy} placeholder="ENERGY (in CALORIE)"/> : item.energy} Calories. </div>
+            
             <div className="buttons">
-              <button style={{backgroundColor: "green"}}> Edit </button>
+              <button style={{backgroundColor: "green"}}
+                      onClick={(event) => {
+                        let tempList = [...list];
+                        if(item.edit === true) {
+                          tempList[index].name = document.getElementById(index+"item").value;
+                          tempList[index].energy = document.getElementById(index+"energy").value;
+                        }
+                        tempList[index].edit = !item.edit;
+                        setList(tempList);
+                      }}
+              > {item.edit ? "Done": "Edit"} </button>
+
               <button style={{backgroundColor: "red"}}
                       onClick={(event) => {
-                        setList(list.filter((element, i) => i !== index))
+                        setList(list.filter((element, i) => i !== index));
                       }}
               > Delete </button>
             </div>

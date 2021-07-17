@@ -1,43 +1,48 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect} from "react";
+import { useHandleApiCall } from "./useHandleApiCall";
 
 export default function EditingMemeCard({meme, handleClick}) {
     let [imageUrl, setImageUrl] = useState(meme.url);
     let [boxTextArr, setBoxTextArr] = useState([]);
+    let [loading, setLoading] = useState(false);
     let query_url = `https://api.imgflip.com/caption_image?template_id=${meme.id}&username=itnal26&password=sanket@123`;
+    let updateImageUrl = useHandleApiCall(query_url, setImageUrl, setBoxTextArr, setLoading);
 
     useEffect(() => {
-        let boxesQuery = '', tempBoxTextArr = [];
-        for(let i = 0; i < meme.box_count; ++i) {
-            tempBoxTextArr.push(String(i+1));
-            boxesQuery += `&boxes[${i}][text]=${i+1}`;
-        }
-        setBoxTextArr(tempBoxTextArr);
-        fetch(query_url + boxesQuery)
-            .then(res => res.json())
-            .then(res => setImageUrl(res.data.url))
-    }, [meme, query_url]);
+        updateImageUrl(
+            (new Array(meme.box_count)).fill(0, 0, meme.box_count).map((item, index) => String(index+1))
+        );
+        console.log("Here");
+    }, [updateImageUrl, meme]);
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        let tempBoxTextArr = [], boxesQuery = '';
-        for(let i = 0; i < meme.box_count; ++i) {
-            let text = document.getElementById(String(i)).value;
-            tempBoxTextArr.push(text);
-            boxesQuery += `&boxes[${i}][text]=${text}`;
-        }
-        setBoxTextArr(tempBoxTextArr);
-        fetch(query_url + boxesQuery)
-        .then(res => res.json())
-        .then(res => setImageUrl(res.data.url))
+        updateImageUrl(
+            (new Array(meme.box_count)).fill(0, 0, meme.box_count).map((item, index) => document.getElementById(String(index)).value)
+        );
     }
 
     return (
+        loading ? 
+        <div style={{
+            width: "100vw", 
+            height: "100vh", 
+            backgroundColor: "rgba(0,0,0,.5)", 
+            display: "flex", 
+            justifyContent: "center", 
+            alignItems: "center", 
+            color: "white"}
+        }>
+            <h1> Loading... </h1>
+        </div>
+        :
         <div className="editing-meme-card">
             <img src={imageUrl} style={{ width: "100%"}} alt={meme.name}/>
             <form onSubmit={(e) => handleSubmit(e)}>
             {boxTextArr.map((item, index) => {
                 return (
                     <input type="text"
+                    key={"input"+index}
                         id={String(index)}
                         className="box-text-input"
                         defaultValue={item}

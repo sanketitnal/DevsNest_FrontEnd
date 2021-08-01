@@ -10,7 +10,6 @@ export default function MemePage() {
     let setLogin = useContext(setLoginState);
 
     useEffect(() => {
-        console.log(login, setLogin);
         fetch('https://api.imgflip.com/get_memes')
             .then(res => res.json())
             .then(res => setMemeList(res.data.memes))

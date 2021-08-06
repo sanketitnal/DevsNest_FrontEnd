@@ -1,0 +1,26 @@
+h1 {
+	text-align: center;
+	text-decoration: underline;
+}
+
+.form {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px;
+}
+
+.form-input {
+	padding: 5px;
+	margin: 10px;
+	width: 200px;
+}
+
+.data-display {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 20px;
+}

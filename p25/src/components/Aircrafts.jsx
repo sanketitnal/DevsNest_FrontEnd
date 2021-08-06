@@ -24,7 +24,7 @@ export default function Aircrafts() {
 function AircraftCard({name, img}) {
     let match = useRouteMatch();
     return (
-        <Link to={`${match.url}/${name}`} className="ml-5 mt-10 relative hover:shadow-2xl" style={{width: "330px", height: "225px"}}>
+        <Link to={`${match.url}/${name}`} className="ml-5 mt-10 relative hover:shadow-2xl bg-white" style={{width: "330px", height: "225px"}}>
             <img src={"images/"+img} alt={name} className="w-full h-full rounded-t-lg object-cover"/>
             <div className="bottom-0 left-0 flex justify-center bg-black text-white rounded-b-lg">{name} (click)</div>
         </Link>

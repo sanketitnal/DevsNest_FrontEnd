@@ -46,7 +46,7 @@ export default function History() {
         {
             history.map((item, index) => {
                 return (
-                    <div style={{
+                    <div key={Number(Date.now()+index)} style={{
                         width: "100vw",
                         height: "80vh",
                         backgroundImage: `url(${item.image})`,

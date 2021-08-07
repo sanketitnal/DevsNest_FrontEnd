@@ -12,4 +12,14 @@ const removeTask = (taskId) => {
 	};
 };
 
-export { addTask, removeTask };
+const updateChecked = (taskId, isChecked) => {
+	return {
+		type: "UPDATE_CHECKED",
+		payload: {
+			taskId,
+			isChecked,
+		},
+	};
+};
+
+export { addTask, removeTask, updateChecked };

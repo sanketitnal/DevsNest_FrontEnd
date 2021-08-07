@@ -1,0 +1,219 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+.App {
+	padding-top: 20px;
+}
+
+body {
+	background: url("./images/back4.jpg") no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	padding: 0%;
+}
+
+.heading {
+	margin: auto;
+	padding: 30px;
+	width: 60%;
+	background-color: rgba(36, 36, 38, 1);
+	border-radius: 5px;
+	color: white;
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.5em;
+	user-select: none;
+}
+
+.task-adding-container {
+	margin: 20px auto;
+	width: 60%;
+	height: 50px;
+	color: white;
+	background-color: rgba(36, 36, 38, 0.9);
+	border-radius: 5px;
+	display: flex;
+	position: relative;
+}
+
+#date-summary {
+	position: absolute;
+	left: -100%;
+	top: 100%;
+	font-size: 0.6em;
+	min-width: 100px;
+	user-select: none;
+	color: white;
+	background-color: green;
+}
+
+#task-add-btn {
+	width: 10%;
+	height: 100%;
+	position: relative;
+	border-radius: 5px;
+	font-size: 2em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	user-select: none; /* Text cannot be selected */
+}
+
+#task-add-btn:hover {
+	background-color: black;
+	transition: 0.3s;
+}
+
+#task-add-btn:active {
+	background-color: black;
+}
+
+#task-text-input {
+	padding: 20px;
+	height: 100%;
+	width: 80%;
+	border: 0px;
+	border-radius: 5px;
+	font-size: 1em;
+	color: white;
+	background-color: rgba(36, 36, 38, 0.9);
+}
+
+input[type="date"] {
+	width: 10%;
+	padding-left: 100px;
+	background: url("./images/calendar.png") no-repeat center;
+	border: 0px;
+	border-radius: 5px;
+	color: transparent;
+}
+
+input[type="date"]:hover {
+	background-color: black;
+	transition: 0.3s;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+	background: transparent;
+	bottom: 0;
+	color: transparent;
+	cursor: pointer;
+	height: auto;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: auto;
+}
+
+#tasks-list {
+	width: 60%;
+	margin: 0px auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.task-list-item {
+	margin-top: 5px;
+	background-color: rgba(36, 36, 38, 0.9);
+	color: white;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: row;
+}
+
+.task-complete-checkbox {
+	width: 10%;
+	float: left;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.task-details {
+	width: 90%;
+	padding: 10px;
+	float: left;
+
+	display: flex;
+	flex-direction: column;
+}
+
+.task-detail-text {
+	font-family: "Open Sans", sans-serif;
+	padding: 0 0 5px 0;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.task-detail-duedate {
+	font-family: "Open Sans", sans-serif;
+	padding-top: 5px;
+	font-size: 0.7em;
+	color: #9a9b9c;
+}
+
+.task-delete-option {
+	width: 10%;
+	float: left;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.task-delete-option:hover {
+	background-color: black;
+	transition: 0.3s;
+}
+
+input[type="checkbox"] {
+	width: 20px;
+	height: 20px;
+}
+
+@media only screen and (max-width: 1200px) {
+	.heading,
+	.task-adding-container,
+	#tasks-list {
+		width: 70%;
+	}
+}
+
+@media only screen and (max-width: 1100px) {
+	.heading,
+	.task-adding-container,
+	#tasks-list {
+		width: 80%;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.heading,
+	.task-adding-container,
+	#tasks-list {
+		width: 90%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	.heading,
+	.task-adding-container,
+	#tasks-list {
+		width: 100%;
+	}
+	input[type="date"] {
+		width: 50px;
+		padding-left: 50px;
+	}
+	#task-add-btn {
+		width: 60px;
+	}
+	.App {
+		padding-top: 0px;
+	}
+}

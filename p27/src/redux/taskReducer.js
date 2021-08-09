@@ -1,13 +1,10 @@
 const taskReducer = (state = [], action) => {
-	let newState;
 	switch (action.type) {
 		case "ADD_TASK":
-			newState = [{ ...action.payload, taskId: state.length }, ...state];
-			break;
+			return [{ ...action.payload, taskId: state.length }, ...state];
 
 		case "REMOVE_TASK":
-			newState = state.filter((task) => task.taskId !== action.payload);
-			break;
+			return state.filter((task) => task.taskId !== action.payload);
 
 		case "UPDATE_CHECKED":
 			for (let i = 0; i < state.length; i++) {
@@ -15,15 +12,11 @@ const taskReducer = (state = [], action) => {
 					state[i].isChecked = action.payload.isChecked;
 				}
 			}
-			newState = [...state];
-			break;
+			return [...state];
 
 		default:
-			newState = state;
+			return state;
 	}
-
-	window.localStorage.setItem("tasks", JSON.stringify(newState));
-	return newState;
 };
 
 export default taskReducer;

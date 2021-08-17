@@ -1,0 +1,93 @@
+.center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.pd-container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	padding: 20px;
+}
+
+.pd-image {
+	width: 400px;
+	height: 400px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: white;
+}
+
+.pd-info {
+	padding: 20px;
+	min-height: 400px;
+	max-width: 500px;
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+}
+
+.pd-title {
+	margin: 5px 0;
+	font-size: 1.5em;
+}
+
+.pd-description {
+	margin: 5px 0;
+	font-size: 1em;
+	color: #8c8c8c;
+}
+
+.pd-price {
+	margin: 5px 0;
+	font-size: 1.2em;
+}
+
+.pd-item-selector {
+	margin: 5px 0;
+	display: flex;
+	flex-direction: row;
+}
+
+.pd-qt-btn {
+	width: 50px;
+	height: 50px;
+	font-size: 2em;
+	color: black;
+	background-color: white;
+	margin: 0 1px;
+	transition: 0.2s ease-in;
+}
+
+.pd-qt-btn:hover {
+	background-color: rgba(0, 0, 0, 0.2);
+}
+
+.pd-qt-dsp {
+	width: 50px;
+	height: 50px;
+	font-size: 2em;
+	color: black;
+	background-color: white;
+	margin: 0 1px;
+}
+
+.add-to-cart-btn {
+	border: 0px;
+	border-radius: 5px;
+	color: white;
+	margin: 10px 0;
+	padding: 10px;
+	font-size: 1.5em;
+	width: 155px;
+	background-color: #1890ff;
+	transition: 0.2s ease-in;
+}
+
+.add-to-cart-btn:hover {
+	background-color: #40a9ff;
+}
